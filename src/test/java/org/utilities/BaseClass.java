@@ -115,7 +115,6 @@ public class BaseClass {
 		return value;		
 	}
 	
-	
     public static void CloseBrowserChrome() {
 		driver.close();
 
@@ -136,21 +135,10 @@ public class BaseClass {
     	
     	FileUtils.copyFile(src, des);
 		
-
 	}
-    
-   
    	public static void jsScrollToView(WebElement element, WebDriver driver) {
 	   
 	   JavascriptExecutor js=(JavascriptExecutor) driver;
-	   js.executeScript("arguments[0].scrollIntoView(true);", element);
-	   
-	   
-   }
-   	
-   	
-   	
-   	
-   	
-   
+	   js.executeScript("arguments[0].scrollIntoView(true);", element);	   
+   }   
 }
