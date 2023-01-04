@@ -1,4 +1,4 @@
-Feature: To validate coin market cap functionality
+Feature: Filtering UI and extracting data for comparison
 
   Scenario Outline: Verify the coin market cap
     Given The user should launch the browser
@@ -6,7 +6,7 @@ Feature: To validate coin market cap functionality
     And The user should select the chart in to list of <chartValue>
     And The user should click on addfilter
     And The user should filter by <algorithmValue>
-    #And The user should capture the information from table
+    And The user should capture the information from table
     And The user should click on toggle mineable
     And The user should be select all Cryptocurrencies
     And The user should be select coins
