@@ -21,15 +21,11 @@ public class CoinMarketCap extends BaseClass  {
 	 
 	 List<String> all_elements_text=new ArrayList<>();
 	 List<String> finalResult=new ArrayList<>();
-	 
-	
-//	public POM POM;
-	
+	 	
 	@Given("The user should launch the browser")
 	public void theUserShouldLaunchTheBrowser() {
 		initialization();
 	}
-
 
 	@When("The user should load the url")
 	public void theUserShouldLoadTheUrl() {
@@ -46,14 +42,11 @@ public class CoinMarketCap extends BaseClass  {
 		WebElement dropDownValue = driver.findElement(By.xpath("//div[@class='sc-aef7b723-0 sc-f84d4cca-0 ezlhyG dropdown-container']//button[text()='"+int1+"']"));
 		JavascriptExecutor js=(JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", dropDownValue);
-	    pom.jsclick(pom.showRow,driver);
-	
+	       pom.jsclick(pom.showRow,driver);
 	}
-
 	@When("The user should filter by {string}")
 	public void theUserShouldFilterByAlgoPow(String Value) throws InterruptedException {
-		Thread.sleep(4000);
-//	   WebElement algorithmPow = driver.findElement(By.xpath("//li[@class='filter']//button[text()='Algorithm']//span"));
+	   Thread.sleep(4000);
 	   pom.jsclick(pom.algorithmPow,driver);
 	   pom.selectValueFromDropDown(Value);
 	}
@@ -64,26 +57,21 @@ public class CoinMarketCap extends BaseClass  {
 
 	@When("The user should click on addfilter")
 	public void theUserShouldClickOnAddfilter() throws InterruptedException {
-	
 		Thread.sleep(5000);
 		WebElement filterBtn = driver.findElement(By.xpath("//div[@class='sc-319be8a1-5 feBTJO']//button[text()='Filters']"));
 		JavascriptExecutor js=(JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", filterBtn);
-		   
+		js.executeScript("arguments[0].click();", filterBtn);   
 	}
 	
-
 	@When("The user should click on toggle mineable")
 	public void theUserShouldClickOnToggleMineable() {
-	    // Write code here that turns the phrase above into concrete actions
 		pom.jsclick(pom.AddFilter,driver);
-		 pom.jsclick(pom.minableToggle,driver);
+		pom.jsclick(pom.minableToggle,driver);
 	}
 
 	@When("The user should be select all Cryptocurrencies")
 	public void theUserShouldBeSelectAllCryptocurrencies() {
-	    // Write code here that turns the phrase above into concrete actions
-		pom.forceClick(pom.AllCryptoDropDown,driver);
+	   	pom.forceClick(pom.AllCryptoDropDown,driver);
 		
 	}
 
@@ -103,19 +91,11 @@ public class CoinMarketCap extends BaseClass  {
 
 	@When("The user should compare price name and position")
 	public void theUserShouldComparePriceNameAndPosition() {
-	    // Write code here that turns the phrase above into concrete actions
-//		finalResult =  pom.getListResult(pom.nam);
-//	    all_elements_text.contains(finalResult);
 		pom.elementVisible(pom.name, driver);
 	}
 
 	@Then("The user should close the browser")
 	public void theUserShouldCloseTheBrowser() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
+	    CloseBrowserChrome();
 	}
-
-	
-	
-
 }
