@@ -20,7 +20,7 @@ public class POM extends BaseClass{
 	}
 	
 	public String popHandle1 = "//*[@class='sc-aef7b723-0 fKbUaI close-button']";
-	public String popHandle2 = "//div[contains(text(),'×')]";
+	public String popHandle2 = "//div[contains(text(),'Ã—')]";
 	public String dropDown = "//div[@class='scroll-child']//p[normalize-space(text())='Show rows']//..//div[@class='sc-aef7b723-0 sc-dae82938-0 coScOT']";
 	public String algorithmPow = "//li[@class='filter']//button[text()='Algorithm']//span";
 	public String showRow = "//div[@class='scroll-child']//p[normalize-space(text())='Show rows']";	
@@ -40,8 +40,7 @@ public class POM extends BaseClass{
 		
 	public void jsclick(String element,WebDriver driver) {	   
 		driver.findElement(By.xpath(element)).click();
-	
-		   
+	   
 	   }
 	
 	public void selectValueFromDropDown(String Value) {
@@ -53,7 +52,6 @@ public class POM extends BaseClass{
 	public void enterValues(String element,String value,WebDriver driver) {
 		driver.findElement(By.xpath(element)).isDisplayed();
 		driver.findElement(By.xpath(element)).click();
-//		driver.findElement(By.xpath(element)).clear();
 		driver.findElement(By.xpath(element)).sendKeys(value);;
 	
 		   
@@ -63,36 +61,32 @@ public class POM extends BaseClass{
 		JavascriptExecutor js=(JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", locator);
 	   }
-public void getValueMethos(String Value) {
+	public void getValueMethos(String Value) {
 		
 		String resultvalues = driver.findElement(By.xpath("//input[@placeholder='Search']")).getText();
 	}
 
-public List<String> getListResult(String locator)
-{
-	 List<WebElement> myList= driver.findElements(By.xpath("//td//a[@class='cmc-link']//p[@class='sc-e225a64a-0 ePTNty']"));
-	 
-			 List<String> all_elements_text=new ArrayList<>();
-			 String[] values = null;
-			 String text = "";
+	public List<String> getListResult(String locator){
+	       List<WebElement> myList= driver.findElements(By.xpath("//td//a[@class='cmc-link']//p[@class='sc-e225a64a-0 ePTNty']"));
+	       List<String> all_elements_text=new ArrayList<>();
+	       String[] values = null;
+	       String text = "";
 			 
 			 for(WebElement element : myList ) {
-				 
 				 text = element.getText();
 				 values = text.split(" ");
-				 System.out.println("result:"+values[0]+" length: "+values[0].length());
-				 
+				 System.out.println("result:"+values[0]+" length: "+values[0].length()); 
 			 }
 			 
 			 return all_elements_text;   
 
-}
-public void elementVisible(String locator,WebDriver driver)
-{
+			}
+	public void elementVisible(String locator,WebDriver driver)
+	{
 	driver.findElement(By.xpath(locator)).isDisplayed();
-}
+	}
 	
-}
+	}
 
 			
 
