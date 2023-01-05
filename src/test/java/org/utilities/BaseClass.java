@@ -27,15 +27,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 	
-
-	
 	public static WebDriver driver;
 	
 	public static void initialization() 
 	{
 		WebDriverManager.chromedriver().setup();
 		 driver=new ChromeDriver();
-		
 	}
 	public static void loadurl(String url) 
 	{
@@ -47,12 +44,10 @@ public class BaseClass {
 		driver.manage().window().maximize();
 
 	}
-	
 	public static void printtitle()
 	{
 		String title = driver.getTitle();
 		System.out.println(title);
-
 	}
 	public static void printcurnturl() 
 	{
@@ -69,7 +64,6 @@ public class BaseClass {
 		login.click();
 
 	}
-	
 	public static String getData(int rowNumber, int cellNumber ) throws IOException 
 	{
        File f=new File("C:\\Users\\manikandan\\eclipse-workspace\\FrameWork\\TestData\\Mani.xlsx");
@@ -89,52 +83,48 @@ public class BaseClass {
 		
 		String value="";
 		if (cellType==1) 
-		{
-			
-			value = cell.getStringCellValue();
-			 			
+		{	
+		value = cell.getStringCellValue();	 			
 		}
 		else if (cellType==0) 
 		{
-			if (DateUtil.isCellDateFormatted(cell)) 
-			{
+		if (DateUtil.isCellDateFormatted(cell)) 
+		{		
+		Date d = cell.getDateCellValue();
 				
-				Date d = cell.getDateCellValue();
-				
-				SimpleDateFormat sim=new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
-		    	value = sim.format(d);				
-			}
-			else 
-			{
-				double d = cell.getNumericCellValue();
-				long l=(long)d;
-				value = String.valueOf(l);			
-			}	
+		SimpleDateFormat sim=new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+		value = sim.format(d);				
+		}
+		else 
+		{
+		double d = cell.getNumericCellValue();
+		long l=(long)d;
+		value = String.valueOf(l);			
+		}	
 		}
 		
 		return value;		
 	}
 	
-    public static void CloseBrowserChrome() {
+   	 public static void CloseBrowserChrome() {
 		driver.close();
 
 	}
     
-    public static String titleReturn() {
+    	public static String titleReturn() {
 		String title = driver.getTitle();
 		return title;
 	}
     
-    public static void screenshot(String name) throws IOException  {
+   	public static void screenshot(String name) throws IOException  {
     	
-    	TakesScreenshot tk=(TakesScreenshot)driver;
+    		TakesScreenshot tk=(TakesScreenshot)driver;
     	
-    	File src = tk.getScreenshotAs(OutputType.FILE);
+    		File src = tk.getScreenshotAs(OutputType.FILE);
     	
-    	File des= new File("C:\\Users\\manikandan\\eclipse-workspace\\CucumberDemo\\target\\screenshot\\name+");
+    		File des= new File("C:\\Users\\manikandan\\eclipse-workspace\\CucumberDemo\\target\\screenshot\\name+");
     	
-    	FileUtils.copyFile(src, des);
-		
+    		FileUtils.copyFile(src, des);	
 	}
    	public static void jsScrollToView(WebElement element, WebDriver driver) {
 	   
