@@ -79,8 +79,6 @@ public class BaseClass {
 		Cell cell = row.getCell(cellNumber);
 		
 		int cellType = cell.getCellType();
-		
-		
 		String value="";
 		if (cellType==1) 
 		{	
