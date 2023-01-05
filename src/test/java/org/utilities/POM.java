@@ -12,13 +12,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class POM extends BaseClass{
 	
-	public POM(WebDriver driver) {
-		
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-		
+	public POM(WebDriver driver) {	
+	this.driver = driver;
+	PageFactory.initElements(driver, this);	
 	}
-	
 	public String popHandle1 = "//*[@class='sc-aef7b723-0 fKbUaI close-button']";
 	public String popHandle2 = "//div[contains(text(),'×')]";
 	public String dropDown = "//div[@class='scroll-child']//p[normalize-space(text())='Show rows']//..//div[@class='sc-aef7b723-0 sc-dae82938-0 coScOT']";
@@ -36,25 +33,20 @@ public class POM extends BaseClass{
 	public String ShowResult ="//button[text()='Show results']";
 	public String actualName ="//td//a[@class='cmc-link']//p[@class='sc-e225a64a-0 ePTNty']";
 	public String name ="//td//a[@class='cmc-link']//p[text()='Monero']";
-
-		
+	
 	public void jsclick(String element,WebDriver driver) {	   
 		driver.findElement(By.xpath(element)).click();
 	   
 	   }
-	
 	public void selectValueFromDropDown(String Value) {
 		
 		driver.findElement(By.xpath("//input[@placeholder='Search']")).sendKeys(Value);
 		driver.findElement(By.xpath("//li[text()='"+Value+"']")).click();	
 	}
-	
 	public void enterValues(String element,String value,WebDriver driver) {
 		driver.findElement(By.xpath(element)).isDisplayed();
 		driver.findElement(By.xpath(element)).click();
-		driver.findElement(By.xpath(element)).sendKeys(value);;
-	
-		   
+		driver.findElement(By.xpath(element)).sendKeys(value);;	   
 	   }
 	public void forceClick(String element,WebDriver driver) {
 		WebElement locator = driver.findElement(By.xpath(element));
@@ -72,22 +64,17 @@ public class POM extends BaseClass{
 	       String[] values = null;
 	       String text = "";
 			 
-			 for(WebElement element : myList ) {
-				 text = element.getText();
-				 values = text.split(" ");
-				 System.out.println("result:"+values[0]+" length: "+values[0].length()); 
-			 }
-			 
-			 return all_elements_text;   
+	       for(WebElement element : myList ) {
+	       text = element.getText();
+	       values = text.split(" ");
+	       System.out.println("result:"+values[0]+" length: "+values[0].length()); 
+	}
+	       return all_elements_text;   
 
-			}
+	}
 	public void elementVisible(String locator,WebDriver driver)
 	{
-	driver.findElement(By.xpath(locator)).isDisplayed();
+	      driver.findElement(By.xpath(locator)).isDisplayed();
 	}
 	
 	}
-
-			
-
-
